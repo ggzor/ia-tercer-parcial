@@ -29,7 +29,7 @@ public class Main {
 
     // Seleccionar las implementaciones para las clases abstractas necesarias
     Evaluador<Individuo> evaluador = new EvaluadorParaleloTerminal(6, dataset, semilla);
-    OperadorCruza operadorCruza = new OperadorCruzaMultiple(random, new OperadorCruza[] {
+    OperadorCruza operadorCruza = new OperadorCruzaMultiple(new OperadorCruza[] {
       new CruzaEnCruz(),
       new CruzaUnPunto(random)
     });

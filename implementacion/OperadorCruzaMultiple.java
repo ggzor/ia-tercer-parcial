@@ -5,14 +5,12 @@ import java.util.*;
 
 /**
  * Representa un operador de cruza que selecciona un operador distinto de forma
- * aleatoria
+ * consecutiva
  */
 public class OperadorCruzaMultiple extends OperadorCruza {
-  private Random random;
   private OperadorCruza[] operadoresCruza;
 
-  public OperadorCruzaMultiple(Random random, OperadorCruza[] operadoresCruza) {
-    this.random = random;
+  public OperadorCruzaMultiple(OperadorCruza[] operadoresCruza) {
     this.operadoresCruza = operadoresCruza;
 	}
 

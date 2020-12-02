@@ -38,8 +38,8 @@ public class EvaluadorParaleloTerminal extends Evaluador<Individuo> {
     }).collect(Collectors.toList()));
   }
 
-  private static String formatoComando = "java -classpath /usr/share/weka/weka.jar"
-                                       + "weka.classifiers.functions.MultilayerPerceptron -t %s"
+  private static String formatoComando = "java -classpath /usr/share/weka/weka.jar "
+                                       + "weka.classifiers.functions.MultilayerPerceptron -t %s "
                                        + "-N %d -H %s -L %f -M %f -S %d";
 
   public double obtenerFitness(Individuo individuo) throws Exception {
@@ -77,6 +77,13 @@ public class EvaluadorParaleloTerminal extends Evaluador<Individuo> {
         fitness = Double.parseDouble(fitnessStr);
       }
     }
+
+    /*
+    // Imprimir errores
+    while ((s = stdErr.readLine()) != null)
+      System.err.println(s);
+    */
+
     return fitness;
   }
 }
