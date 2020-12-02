@@ -15,7 +15,7 @@ public class CruzaUnPunto extends OperadorCruza {
   public BitSet[] cruzar(int longitud, BitSet p1, BitSet p2) {
     BitSet bitshijo1 = new BitSet(longitud);
     BitSet bitshijo2 = new BitSet(longitud);
-    int n = 1 + random.nextInt(longitud - 2);
+    int n = 1 + random.nextInt(longitud - 1);
     for (int i = longitud; i >= 0; i--) {
       if (i >= 0 && i <= n) {
         bitshijo1.set(i, p1.get(i));

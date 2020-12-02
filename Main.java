@@ -15,7 +15,7 @@ public class Main {
     Random random = new Random(semilla);
 
     Path dataset = Paths.get("/usr/share/weka/data/diabetes.arff");
-    int atributos = 10;
+    int atributos = 9;
     int clases = 2;
 
     int cantidadIndividuos = 50;
@@ -48,7 +48,7 @@ public class Main {
         Object valores[] = (Object[]) is.readObject();
         poblacion = (List<Individuo>) valores[0];
         generacionInicial = (Integer) valores[1];
-        System.out.println("La última generación encontrada en el archivo es: " + generacionInicial);
+        System.out.println("La última generación encontrada en el archivo es: " + (generacionInicial + 1));
       }
     }
 
@@ -70,7 +70,7 @@ public class Main {
     procesarNuevaGeneracion(generacionInicial, poblacion);
 
     // Iterar las generaciones especificadas
-    for (int i = generacionInicial; i < cantidadGeneraciones; i++) {
+    for (int i = generacionInicial + 1; i < cantidadGeneraciones + 1; i++) {
       // Realizar la cruza
       List<Individuo> nuevosIndividuos = cruzador.cruzar(poblacion);
       

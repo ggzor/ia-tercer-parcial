@@ -81,7 +81,7 @@ public class Individuo implements Serializable {
   public void imprimir() {
     System.out.println(IntStream.range(0, nombres.length)
               .mapToObj(i -> 
-                String.format("  %s: %4.3f,",
+                String.format("  %s: %4.3f",
                                nombres[i],
                                todosParametros[i].decodificar(campos[i])))
               .collect(Collectors.joining(",\n", "{\n", "\n}")));
@@ -98,7 +98,7 @@ public class Individuo implements Serializable {
     }
 
     for (int i = 0; i < campos.get(0).length; i++) {
-      BitSet parametros[] = new BitSet[campos.get(0).length];
+      BitSet parametros[] = new BitSet[Individuo.todosParametros.length];
       for (int j = 0; j < Individuo.todosParametros.length; j++) {
         parametros[j] = todosParametros[j].normalizar(campos.get(j)[i]);
       }

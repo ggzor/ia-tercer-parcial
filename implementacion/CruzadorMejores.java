@@ -18,12 +18,19 @@ public class CruzadorMejores extends EstrategiaCruza<Individuo> {
     this.operadorCruza = operadorCruza;
 	}
 
+  private int contador;
   @Override
   public List<Individuo> cruzar(List<Individuo> poblacion) {
+    contador = 0;
+
     return poblacion.stream()
                     .limit((long)(porcentajeMejoresCruzar * (double)poblacion.size()))
-                    .flatMap(i1 -> poblacion.stream()
-                                            .flatMap(i2 -> i1.cruzar(i2, operadorCruza)))
+                    .flatMap(i1 -> { 
+                      contador += 1;
+                      return poblacion.stream()
+                                      .skip(contador)
+                                      .flatMap(i2 -> i1.cruzar(i2, operadorCruza));
+                    })
                     .collect(Collectors.toList());
   }
 }
