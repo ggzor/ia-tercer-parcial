@@ -13,7 +13,7 @@ public class Main {
   public static void main(String[] args) throws IOException, ClassNotFoundException {
     // NOTA: En caso de que el JAR de Weka se encuentre en otra localización
     //       se debe de cambiar la dirección que se encuentra a continuación
-    Path jarWeka = Paths.get("/usr/share/weka/weka.jar");
+    Path jarWeka = Paths.get("C:\\Program Files\\Weka-3-8\\weka.jar");
     // La dirección del conjunto de datos
     Path dataset = Paths.get("./datos/dataset.arff");
     // Características del conjunto de datos
