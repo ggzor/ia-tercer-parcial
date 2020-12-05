@@ -13,15 +13,15 @@ public class Individuo implements Serializable {
   private static final long serialVersionUID = -3627076624459389937L;
 
   public static final Parametro EPOCAS = 
-    new ParametroAcotado(100, 1000);
+    new ParametroAcotado(80, 500);
   public static final Parametro CAPAS = 
     new ParametroAcotado(1, 4);
   // Requiere inicialización
   public static Parametro NEURONAS;
   public static final Parametro LEARNING_RATE =
-    new ParametroGranular(0.0, 0.3, 8);
+    new ParametroGranular(0.0, 0.3, 10);
   public static final Parametro MOMENTUM =
-    new ParametroGranular(0.0, 0.3, 8);
+    new ParametroGranular(0.0, 0.3, 10);
 
   private static Parametro[] todosParametros;
   private static int cantidadBits;
@@ -126,5 +126,26 @@ public class Individuo implements Serializable {
 
   public double getMomentum() {
     return MOMENTUM.decodificar(campos[4]);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(campos[0], campos[1], campos[2], campos[3], campos[4]);
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (obj != null && obj instanceof Individuo) {
+      Individuo otro = (Individuo) obj;
+
+      for (int i = 0; i < campos.length; i++) {
+        if (!this.campos[i].equals(otro.campos[i]))
+          return false;
+      }
+
+      return true;
+    }
+
+    return false;
   }
 }

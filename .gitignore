@@ -184,3 +184,5 @@ hs_err_pid*
 .classpath
 factoryConfiguration.json
 
+checkpoint*
+*.txt
