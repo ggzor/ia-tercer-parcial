@@ -20,6 +20,9 @@ public class Main {
     int atributos = 15;
     int clases = 2;
 
+    // Cantidad de hilos a utilizar
+    int cantidadHilos = 7;
+
     // Configuración del algoritmo genético
     int cantidadIndividuos = 30;
     int cantidadGeneraciones = 36;
@@ -36,7 +39,7 @@ public class Main {
 
     // Seleccionar las implementaciones para las clases abstractas necesarias
     // Realizar evaluación en paralelo utilizando la línea de comandos para conectar con Weka
-    Evaluador<Individuo> evaluador = new EvaluadorParaleloTerminal(7, dataset, jarWeka, semilla);
+    Evaluador<Individuo> evaluador = new EvaluadorParaleloTerminal(cantidadHilos, dataset, jarWeka, semilla);
     // Utilizar 4 operadores distintos de cruza y aplicarlos secuencialmente
     OperadorCruza operadorCruza = new OperadorCruzaMultiple(new OperadorCruza[] {
       new CruzaEnCruz(),
